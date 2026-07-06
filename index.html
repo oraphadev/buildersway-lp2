@@ -7,19 +7,162 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#080808" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
       content="A BuildersWay é uma consultoria especializada em Inteligência Artificial aplicada. Compreendemos profundamente seu negócio para construir soluções inteligentes que geram impacto real."
     />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://buildersway.com.br/" />
     <title>BuildersWay - Impulsionamos negócios através da inteligência artificial</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://buildersway.com.br/" />
+    <meta property="og:site_name" content="BuildersWay" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta
+      property="og:title"
+      content="BuildersWay - Impulsionamos negócios através da inteligência artificial"
+    />
+    <meta
+      property="og:description"
+      content="Consultoria especializada em Inteligência Artificial aplicada. Compreendemos profundamente seu negócio para construir soluções inteligentes que geram impacto real."
+    />
+    <meta property="og:image" content="https://buildersway.com.br/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="BuildersWay - Impulsionamos negócios através da inteligência artificial"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="BuildersWay - Impulsionamos negócios através da inteligência artificial"
+    />
+    <meta
+      name="twitter:description"
+      content="Consultoria especializada em Inteligência Artificial aplicada. Compreendemos profundamente seu negócio para construir soluções inteligentes que geram impacto real."
+    />
+    <meta name="twitter:image" content="https://buildersway.com.br/og-image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Google+Sans+Display:wght@400;500;700&family=Google+Sans+Flex&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Dados estruturados (schema.org). O FAQPage espelha src/components/FAQ.tsx:
+         ao alterar perguntas lá, atualize também aqui. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://buildersway.com.br/#organization",
+            "name": "BuildersWay",
+            "url": "https://buildersway.com.br/",
+            "logo": "https://buildersway.com.br/web-app-manifest-512x512.png",
+            "image": "https://buildersway.com.br/og-image.png",
+            "description": "Consultoria especializada em Inteligência Artificial aplicada. Compreendemos profundamente seu negócio para construir soluções inteligentes que geram impacto real.",
+            "slogan": "Impulsionamos negócios através da inteligência artificial",
+            "telephone": "+55-22-98831-6821",
+            "areaServed": "BR",
+            "knowsAbout": [
+              "Inteligência Artificial",
+              "Consultoria de IA",
+              "Transformação digital",
+              "Automação de processos"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://buildersway.com.br/#website",
+            "url": "https://buildersway.com.br/",
+            "name": "BuildersWay",
+            "inLanguage": "pt-BR",
+            "publisher": { "@id": "https://buildersway.com.br/#organization" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://buildersway.com.br/#webpage",
+            "url": "https://buildersway.com.br/",
+            "name": "BuildersWay - Impulsionamos negócios através da inteligência artificial",
+            "description": "A BuildersWay é uma consultoria especializada em Inteligência Artificial aplicada. Compreendemos profundamente seu negócio para construir soluções inteligentes que geram impacto real.",
+            "inLanguage": "pt-BR",
+            "isPartOf": { "@id": "https://buildersway.com.br/#website" },
+            "about": { "@id": "https://buildersway.com.br/#organization" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://buildersway.com.br/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "O que a BuildersWay faz?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Ajudamos empresas a evoluírem através da IA: compreensão profunda do negócio, diagnóstico estratégico, definição de prioridades e implementação de soluções personalizadas. Não vendemos tecnologia, resolvemos problemas."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "A BuildersWay vende projetos de IA?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não. Vendemos soluções. Algumas usam IA intensivamente, outras parcialmente, outras podem nem usar IA se existir alternativa mais adequada."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "A BuildersWay possui soluções prontas?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não. Toda solução é construída após diagnóstico; problemas semelhantes podem resultar em soluções diferentes."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "O diagnóstico é obrigatório?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Na filosofia da BuildersWay, sim. Sem compreensão adequada, recomendações tornam-se especulação."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "A BuildersWay realiza apenas consultoria?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não. Sempre que fizer sentido, também executamos a implementação. Preferimos acompanhar toda a jornada, da estratégia à entrega."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "A BuildersWay atende apenas empresas de tecnologia?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Não. A metodologia é independente de segmento; tecnologia é apenas o foco inicial de comunicação."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Como a BuildersWay mede sucesso?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Pelo impacto gerado. Tecnologia entregue não é sucesso; resultados percebidos são."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

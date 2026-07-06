@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
+    "generate:og": "node scripts/generate-og.mjs public/og-image.png",
     "preview": "vite preview"
   },
   "dependencies": {
