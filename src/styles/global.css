@@ -1,0 +1,1183 @@
+/* ============================================================
+   BuildersWay - Design tokens (base: Google Stitch / 2rl/DESIGN.md)
+   ============================================================ */
+:root {
+  /* Marca (Stitch dark) */
+  --color-accent: #7168f6;
+  --color-accent-soft: #9c75ff;
+  --color-blue: #5e9bff;
+  --color-cyan: #50ffb6;
+  --color-success: #0bd972;
+  --color-bg: #000;
+  --color-surface: #202124;
+  --color-surface-container: #161718;
+  --color-surface-raised: #28292a;
+  --color-surface-deep: #191a1f;
+  --color-surface-inverse: #f1f3f4;
+
+  /* Neutros */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-text: #f1f3f4;
+  --color-text-secondary: #bdc1c6;
+  --color-text-muted: rgba(243, 244, 246, 0.65);
+  --color-border: rgba(218, 220, 224, 0.18);
+  --color-border-subtle: rgba(218, 220, 224, 0.08);
+  --color-neutral: #757575;
+
+  /* Sistema */
+  --color-focus: #f1f3f4;
+
+  /* Tipografia (Google Sans - Google Fonts, licença comercial jan/2026) */
+  --font-display: "Google Sans Display", "Google Sans", ui-sans-serif,
+    system-ui, sans-serif;
+  --font-heading: "Google Sans Flex", "Google Sans", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-body: "Google Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Layout */
+  --container-large: 80rem;
+  --container-medium: 68rem;
+  --container-small: 48rem;
+  --padding-global: 1.5rem;
+
+  /* Efeitos (pills + glass) */
+  --radius-button: 999px;
+  --radius-card: 24px;
+  --radius-card-lg: 36px;
+  --radius-panel: 16px;
+  --blur-glass: 40px;
+  --shadow-glass: 0 0 15px 0 rgba(0, 0, 0, 0.25);
+  --shadow-glass-soft: 0 0 30px 0 rgba(0, 0, 0, 0.35);
+  --ease-glass: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s var(--ease-glass);
+
+  /* Gradientes assinatura (roxo -> azul -> ciano) */
+  --gradient-text: linear-gradient(90deg, #c5cdff, #9c75ff 45%, #5e9bff);
+  --gradient-text-ivory: linear-gradient(90deg, #f1f3f4, #8f9aff);
+  --gradient-card: linear-gradient(135deg, #202124, #191a1f);
+  --gradient-card-vertical: linear-gradient(#202124, #1a1b1e);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --padding-global: 3rem;
+  }
+}
+
+/* ============================================================
+   Reset / base
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* ============================================================
+   Tipografia
+   ============================================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Stitch: headings peso 400 - hierarquia por escala + tracking negativo */
+  font-family: var(--font-heading);
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.heading-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+
+.heading-h2 {
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.heading-h3 {
+  font-size: clamp(1.75rem, 5vw, 2.8125rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.heading-h5 {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  line-height: 1.3;
+}
+
+.heading-h6 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.text-gradient {
+  background-image: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  padding-bottom: 0.1em;
+}
+
+.text-gradient-ivory {
+  background-image: var(--gradient-text-ivory);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  padding-bottom: 0.1em;
+}
+
+.text-medium {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.text-large {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* Eyebrow como chip (padrão BETA pill do Stitch) */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  background-color: rgba(22, 23, 24, 0.5);
+  backdrop-filter: blur(var(--blur-glass));
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.padding-global {
+  padding-left: var(--padding-global);
+  padding-right: var(--padding-global);
+}
+
+.container-large,
+.container-medium,
+.container-small {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.container-large {
+  max-width: var(--container-large);
+}
+
+.container-medium {
+  max-width: var(--container-medium);
+}
+
+.container-small {
+  max-width: var(--container-small);
+}
+
+.section-medium {
+  padding-block: 3rem;
+}
+
+.section-large {
+  padding-block: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-medium {
+    padding-block: 4rem;
+  }
+  .section-large {
+    padding-block: 6rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .section-medium {
+    padding-block: 5rem;
+  }
+  .section-large {
+    padding-block: 8rem;
+  }
+}
+
+/* ============================================================
+   Botões (pills Stitch)
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-button);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  transition:
+    opacity 0.15s var(--ease-glass),
+    background-color 0.15s var(--ease-glass),
+    border-color 0.15s var(--ease-glass),
+    box-shadow 0.15s var(--ease-glass);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -2px;
+  border-radius: var(--radius-button);
+}
+
+/* CTA invertido: pill branco #F1F3F4 sobre preto, hover só por opacidade */
+.btn--primary {
+  background-color: var(--color-surface-inverse);
+  color: var(--color-surface);
+}
+
+.btn--primary:hover {
+  opacity: 0.88;
+}
+
+.btn--secondary {
+  /* Painel glass do Stitch: blur 40px + borda 1px translúcida + sombra difusa */
+  background-color: rgba(22, 23, 24, 0.5);
+  backdrop-filter: blur(var(--blur-glass));
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-glass);
+}
+
+.btn--secondary:hover {
+  background-color: rgba(110, 115, 119, 0.35);
+  border-color: rgba(218, 220, 224, 0.3);
+}
+
+.btn--small {
+  min-height: 2.75rem;
+  padding: 0.625rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.btn .btn__arrow {
+  transition: transform 0.15s var(--ease-glass);
+}
+
+@media (hover: hover) {
+  .btn:hover .btn__arrow {
+    transform: translateX(4px);
+  }
+}
+
+/* ============================================================
+   Camadas de arte (imagens geradas via Kairogen)
+   ============================================================ */
+.section-art {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+}
+
+/* Variante com sangria vertical: compensa o parallax (translateY)
+   sem revelar as bordas da imagem dentro da seção. */
+.section-art--bleed {
+  inset: -80px 0;
+  width: 100%;
+  height: calc(100% + 160px);
+  object-fit: cover;
+}
+
+.hero__terrain-wrap {
+  inset: auto 0 -4%;
+  height: 58%;
+}
+
+.hero__terrain {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 78%;
+  mask-image: linear-gradient(180deg, transparent, #000 72%);
+  will-change: transform, opacity;
+}
+
+.narrative-sticky__bg {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.process__bg {
+  /* A corrente fica na metade inferior da imagem. As zonas transparentes
+     em px cobrem sangria (80px) + parallax (64px) em ambas as pontas,
+     para que o overflow:hidden da seção nunca corte a imagem num ponto
+     visível - independente da altura da seção. */
+  object-position: center bottom;
+  mask-image: linear-gradient(
+    180deg,
+    transparent 144px,
+    #000 55%,
+    #000 80%,
+    transparent calc(100% - 144px)
+  );
+}
+
+.statement-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.statement__orb-wrap {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.statement__orb {
+  width: clamp(18rem, 52vw, 32rem);
+  aspect-ratio: 1;
+  mask-image: radial-gradient(circle, #000 55%, transparent 74%);
+}
+
+.cta__aurora {
+  inset: 0 0 auto;
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  object-position: center top;
+  mask-image: linear-gradient(180deg, #000 25%, transparent 85%);
+}
+
+.problems-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.problems-section > .container-large {
+  position: relative;
+}
+
+.problems__bg {
+  /* Cauda da corrente de partículas do processo: ancorada no topo para
+     "receber" o fluxo da seção acima. Transparente até 14% (sangria de
+     80px + parallax de 48px) para o overflow:hidden nunca cortar a
+     imagem num ponto visível. */
+  opacity: 0.5;
+  object-position: center top;
+  mask-image: linear-gradient(
+    180deg,
+    transparent 128px,
+    #000 34%,
+    #000 68%,
+    transparent calc(100% - 128px)
+  );
+}
+
+/* Ultra-wide (> 1920px): as artes de fundo param de esticar - ficam
+   centralizadas em 1920px e as bordas laterais recebem um fade longo
+   para fundir com o fundo da página. As próprias imagens já nascem com
+   vinheta preta embutida, então a máscara atua como segunda camada de
+   segurança. O conteúdo (marquee, seções, glows) continua fluido. */
+@media (min-width: 1921px) {
+  :root {
+    --art-edge-fade: linear-gradient(
+      90deg,
+      transparent,
+      #000 22%,
+      #000 78%,
+      transparent
+    );
+  }
+
+  /* Campo de aura ambiente: um brilho galáctico quase imperceptível nas
+     três cores da marca preenche as laterais além dos 1920px. As artes
+     centralizadas não "terminam" contra o preto vazio - dissolvem-se
+     neste campo contínuo que conecta todas as seções. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        42% 55% at 3% 28%,
+        rgba(113, 104, 246, 0.055),
+        transparent 70%
+      ),
+      radial-gradient(
+        40% 50% at 98% 62%,
+        rgba(94, 155, 255, 0.05),
+        transparent 70%
+      ),
+      radial-gradient(
+        60% 42% at 50% 110%,
+        rgba(80, 255, 182, 0.028),
+        transparent 70%
+      );
+  }
+
+  .hero__terrain-wrap,
+  .narrative-sticky__bg,
+  .section-art--bleed,
+  .cta__aurora {
+    max-width: 1920px;
+    margin-inline: auto;
+  }
+
+  /* Fades verticais originais preservados; o corte lateral entra como
+     segunda camada de máscara (intersect). */
+  .hero__terrain {
+    mask-image:
+      linear-gradient(180deg, transparent, #000 72%),
+      var(--art-edge-fade);
+    mask-composite: intersect;
+  }
+
+  .narrative-sticky__bg {
+    mask-image: var(--art-edge-fade);
+  }
+
+  .process__bg {
+    mask-image:
+      linear-gradient(
+        180deg,
+        transparent 144px,
+        #000 55%,
+        #000 80%,
+        transparent calc(100% - 144px)
+      ),
+      var(--art-edge-fade);
+    mask-composite: intersect;
+  }
+
+  .problems__bg {
+    mask-image:
+      linear-gradient(
+        180deg,
+        transparent 128px,
+        #000 34%,
+        #000 68%,
+        transparent calc(100% - 128px)
+      ),
+      var(--art-edge-fade);
+    mask-composite: intersect;
+  }
+
+  .cta__aurora {
+    mask-image:
+      linear-gradient(180deg, #000 25%, transparent 85%),
+      var(--art-edge-fade);
+    mask-composite: intersect;
+  }
+}
+
+/* ============================================================
+   Barra de progresso de scroll
+   ============================================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #9c75ff, #5e9bff, #50ffb6);
+  transform-origin: 0 50%;
+  z-index: 110;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Nav (glass Stitch: blur 40px sobre preto)
+   ============================================================ */
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.55);
+  /* Não adicionar -webkit- manualmente: o Lightning CSS colapsa o par
+     (última declaração vence) e o prefixo é gerado no build via cssTarget. */
+  backdrop-filter: blur(var(--blur-glass));
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 5rem;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.nav__links {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav__links a {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  transition: var(--transition-fast);
+  padding: 0.5rem 0;
+}
+
+.nav__links a:hover {
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .nav__links {
+    display: flex;
+  }
+}
+
+.nav__cta-label--full {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav__cta-label--full {
+    display: inline;
+  }
+
+  .nav__cta-label--short {
+    display: none;
+  }
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(8rem, 20vh, 12rem);
+  padding-bottom: clamp(5rem, 14vh, 9rem);
+}
+
+.hero__glow {
+  position: absolute;
+  inset: auto 0 -40%;
+  height: 80%;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(113, 104, 246, 0.32),
+    rgba(94, 155, 255, 0.12) 45%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  max-width: 56rem;
+}
+
+.hero__sub {
+  max-width: 40rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ============================================================
+   Marquee de conceitos
+   ============================================================ */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding-block: 2rem;
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee__track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee__item {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.marquee__dot {
+  color: var(--color-accent-soft);
+}
+
+/* ============================================================
+   Narrativa (storytelling)
+   ============================================================ */
+.narrative {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 8vw, 5rem);
+}
+
+.narrative p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 5vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  max-width: 52rem;
+  color: var(--color-text-secondary);
+}
+
+.narrative p strong {
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.narrative__closing {
+  color: var(--color-text) !important;
+}
+
+/* Sticky storytelling (scroll-linked) */
+.narrative-sticky {
+  position: relative;
+  height: 340vh;
+}
+
+.narrative-sticky__viewport {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.narrative-sticky__stage {
+  display: grid;
+  align-items: center;
+}
+
+.narrative-sticky__line {
+  grid-area: 1 / 1;
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 5vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  max-width: 52rem;
+  color: var(--color-text-secondary);
+  will-change: transform, opacity, filter;
+}
+
+.narrative-sticky__line strong {
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+/* ============================================================
+   Processo (4 pilares)
+   ============================================================ */
+.process {
+  position: relative;
+  overflow: hidden;
+}
+
+.process > .padding-global {
+  position: relative;
+}
+
+.process__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  max-width: 44rem;
+}
+
+.process__list {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .process__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .process__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.process__card-wrap {
+  height: 100%;
+  will-change: transform;
+}
+
+/* Feature card Stitch: superfície opaca #202124, raio generoso,
+   sem borda - hover por sombra (transition-shadow, 300ms). */
+.process__card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.25rem 1.75rem;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  height: 100%;
+  /* box-shadow apenas: transition "all" briga com o transform/opacity animados pelo Motion */
+  transition: box-shadow 0.3s var(--ease-glass);
+}
+
+.process__card:hover {
+  box-shadow: var(--shadow-glass-soft);
+}
+
+@media (min-width: 992px) {
+  .process__card {
+    border-radius: var(--radius-card-lg);
+    padding: 2.5rem 2rem;
+  }
+}
+
+.process__number {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-accent-soft);
+  letter-spacing: 0.06em;
+}
+
+.process__card h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.process__card p {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* ============================================================
+   Problemas que resolvemos
+   ============================================================ */
+.problems__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  max-width: 44rem;
+}
+
+.problems__grid {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .problems__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .problems__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.problems__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+}
+
+.problems__item svg {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.problems__item p {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   Statement (frases permanentes)
+   ============================================================ */
+.statement {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.statement h2 {
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 20ch;
+}
+
+/* ============================================================
+   Princípios
+   ============================================================ */
+.principles__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  max-width: 44rem;
+}
+
+.principles__list {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.principles__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+@media (min-width: 768px) {
+  .principles__item {
+    display: grid;
+    grid-template-columns: 4rem 18rem 1fr;
+    gap: 2rem;
+    align-items: baseline;
+  }
+}
+
+.principles__index {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-accent-soft);
+  letter-spacing: 0.06em;
+}
+
+.principles__item h3 {
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.principles__item p {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* ============================================================
+   FAQ (cards #28292A, padrão accordion do Stitch)
+   ============================================================ */
+.faq__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq__item {
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  min-height: 3rem;
+  padding: 1.375rem 1.5rem;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-weight: 500;
+  color: var(--color-text);
+  transition: var(--transition-fast);
+}
+
+.faq__question:hover {
+  color: var(--color-white);
+  background-color: rgba(110, 115, 119, 0.12);
+}
+
+.faq__icon {
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+}
+
+.faq__answer-inner {
+  padding: 0 1.5rem 1.375rem;
+  max-width: 46rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   CTA final
+   ============================================================ */
+.cta {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.cta__glow {
+  position: absolute;
+  inset: -40% 0 auto;
+  height: 80%;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(113, 104, 246, 0.25),
+    rgba(94, 155, 255, 0.1) 45%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.cta__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.cta__content h2 {
+  max-width: 24ch;
+}
+
+.cta__content > p {
+  max-width: 38rem;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-block: 3rem 2rem;
+}
+
+.footer__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .footer__grid {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 22rem;
+}
+
+.footer__tagline {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.footer__nav h2 {
+  font-size: 0.8125rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-neutral);
+  margin-bottom: 1rem;
+}
+
+.footer__nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.footer__nav a {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  transition: var(--transition-fast);
+  display: inline-block;
+  padding: 0.25rem 0;
+}
+
+.footer__nav a:hover {
+  color: var(--color-text);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-neutral);
+}
+
+.footer__motto {
+  color: var(--color-text);
+}
